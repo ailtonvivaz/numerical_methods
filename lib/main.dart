@@ -11,8 +11,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Numerical Methods',
       theme: ThemeData(
-        // brightness: Brightness.dark,
-        // canvasColor: Colors.black,
         primarySwatch: Colors.teal,
       ),
       darkTheme: ThemeData(

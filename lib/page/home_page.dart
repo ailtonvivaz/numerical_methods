@@ -52,8 +52,6 @@ class _HomePageState extends State<HomePage> {
   _buildBody() {
     bool isTablet = TabletDetector.isTablet(MediaQuery.of(context));
     var isLarge = MediaQuery.of(context).size.width > 600;
-    var hasDetailPage =
-        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return GridView.count(
       crossAxisSpacing: 20,
