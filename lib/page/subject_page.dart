@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:numerical_methods/utils/master_detail/detail_route.dart';
-import 'package:numerical_methods/utils/master_detail/master_detail_container.dart';
 import 'package:numerical_methods/model/method.dart';
 import 'package:numerical_methods/model/subject.dart';
 import 'package:numerical_methods/page/method_page.dart';
+import 'package:numerical_methods/widget/platform/platform_app_bar.dart';
+import 'package:numerical_methods/widget/platform/platform_list_tile.dart';
+import 'package:numerical_methods/widget/platform/platform_scaffold.dart';
 
 class SubjectPage extends StatefulWidget {
   final Subject subject;
@@ -19,30 +20,17 @@ class _SubjectPageState extends State<SubjectPage> {
   Method _methodSelected;
 
   @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _onClickMethod(_subject.methods[0], pop: false);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return MasterDetailContainer(
-      child: Scaffold(
-        appBar: AppBar(title: Text(_subject.name)),
-        body: _buildBody(),
-      ),
+    return PlatformScaffold(
+      appBar: PlatformAppBar(title: Text(_subject.name)),
+      body: _buildBody(),
     );
   }
 
   _buildBody() {
     return ListView.separated(
       itemCount: _subject.methods.length,
-      separatorBuilder: (_, __) => Divider(
-        height: 0,
-      ),
+      separatorBuilder: (_, __) => Divider(height: 0),
       itemBuilder: (_, index) {
         Method method = _subject.methods[index];
         return GestureDetector(
@@ -51,8 +39,8 @@ class _SubjectPageState extends State<SubjectPage> {
             color: method == _methodSelected
                 ? Theme.of(context).highlightColor
                 : Colors.transparent,
-            child: ListTile(
-              title: Text(method.name),
+            child: PlatformListTile(
+              title: method.name,
               trailing: Icon(Icons.keyboard_arrow_right),
             ),
           ),
@@ -62,33 +50,13 @@ class _SubjectPageState extends State<SubjectPage> {
   }
 
   _onClickMethod(Method method, {bool pop = true}) {
-    print("teste"); // To remove the previously selected detail page
-    // while (Navigator.of(context).canPop()) {
-    //   Navigator.of(context).pop();
-    // }
+    // setState(() {
+    //   this._methodSelected = method;
+    // });
 
-    if (!pop) {
-      // Navigator.of(context).pop();
-
-      Navigator.of(context).push(DetailRoute(builder: (context) {
-        return MethodPage(method);
-      }));
-    } else {
-      Navigator.of(context).pushReplacement(DetailRoute(builder: (context) {
-        return MethodPage(method);
-      }));
-    }
-
-    setState(() {
-      this._methodSelected = method;
-    });
-
-    // if (_isTablet) {
-    // } else {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => MethodPage(method)),
-    //   );
-    // }
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MethodPage(method)),
+    );
   }
 }

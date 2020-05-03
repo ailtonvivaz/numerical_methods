@@ -3,6 +3,9 @@ import 'package:numerical_methods/model/method.dart';
 import 'package:numerical_methods/model/subject.dart';
 import 'package:numerical_methods/page/subject_page.dart';
 import 'package:numerical_methods/tablet_detector.dart';
+import 'package:numerical_methods/widget/platform/platform_app_bar.dart';
+import 'package:numerical_methods/widget/platform/platform_card.dart';
+import 'package:numerical_methods/widget/platform/platform_scaffold.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,8 +41,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return PlatformScaffold(
+      appBar: PlatformAppBar(
         title: Text("Métodos Numéricos"),
       ),
       body: SafeArea(
@@ -63,9 +66,9 @@ class _HomePageState extends State<HomePage> {
         Subject subject = _subjects[index];
         return GestureDetector(
           onTap: () => _onClickSubject(subject),
-          child: Card(
+          child: PlatformCard(
             child: Padding(
-              padding: const EdgeInsets.all(20 - .0),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 children: <Widget>[
                   AspectRatio(
@@ -78,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                   Flexible(
                     child: Text(
                       subject.name,
-                      style: Theme.of(context).textTheme.title,
+                      style: Theme.of(context).textTheme.headline6,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
