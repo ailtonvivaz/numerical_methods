@@ -17,7 +17,7 @@ class PlatformCard extends PlatformWidget<Container, Card> {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).dividerColor,
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: child,
     );

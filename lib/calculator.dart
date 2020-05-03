@@ -11,3 +11,5 @@ class Calculator {
     print(r); // = true
   }
 }
+
+enum CalculatorState { none, calculating, calculated }

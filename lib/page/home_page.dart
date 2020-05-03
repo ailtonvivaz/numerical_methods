@@ -74,7 +74,10 @@ class _HomePageState extends State<HomePage> {
                   AspectRatio(
                     aspectRatio: 1,
                     child: Container(
-                      color: Colors.grey,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),

@@ -9,6 +9,7 @@ class PlatformTextField extends PlatformWidget<CupertinoTextField, TextField> {
   final TextAlign textAlign;
   final TextInputType keyboardType;
   final List<TextInputFormatter> inputFormatters;
+  final bool autocorrect;
 
   PlatformTextField({
     this.controller,
@@ -16,21 +17,18 @@ class PlatformTextField extends PlatformWidget<CupertinoTextField, TextField> {
     this.textAlign = TextAlign.start,
     this.keyboardType = TextInputType.text,
     this.inputFormatters = const [],
+    this.autocorrect = false,
   });
 
   @override
   TextField createAndroidWidget(BuildContext context) {
     return TextField(
       controller: controller,
-      decoration: InputDecoration(
-        labelText: hintText,
-        filled: true,
-        isDense: true,
-        border: UnderlineInputBorder(),
-      ),
+      decoration: InputDecoration(labelText: hintText),
       textAlign: textAlign,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
+      autocorrect: autocorrect,
     );
   }
 
@@ -38,10 +36,18 @@ class PlatformTextField extends PlatformWidget<CupertinoTextField, TextField> {
   CupertinoTextField createIosWidget(BuildContext context) {
     return CupertinoTextField(
       controller: controller,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Theme.of(context).dividerColor,
+          width: 1.5,
+        ),
+        borderRadius: BorderRadius.circular(5),
+      ),
       placeholder: hintText,
       textAlign: textAlign,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
+      autocorrect: autocorrect,
     );
   }
 }

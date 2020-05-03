@@ -23,7 +23,10 @@ class _SubjectPageState extends State<SubjectPage> {
   Widget build(BuildContext context) {
     return PlatformScaffold(
       appBar: PlatformAppBar(title: Text(_subject.name)),
-      body: _buildBody(),
+      body: SafeArea(
+        bottom: false,
+        child: _buildBody(),
+      ),
     );
   }
 

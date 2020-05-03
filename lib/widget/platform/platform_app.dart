@@ -14,10 +14,12 @@ class PlatformApp extends PlatformWidget<CupertinoApp, MaterialApp> {
         debugShowCheckedModeBanner: false,
         title: title,
         theme: ThemeData(
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.blue,
           brightness: Brightness.light,
           inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(),
+            filled: true,
+            isDense: true,
+            border: UnderlineInputBorder(),
           ),
         ),
         darkTheme: ThemeData(

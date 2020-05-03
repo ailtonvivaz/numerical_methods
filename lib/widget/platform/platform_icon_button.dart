@@ -18,5 +18,7 @@ class PlatformIconButton extends PlatformWidget<CupertinoButton, IconButton> {
   CupertinoButton createIosWidget(BuildContext context) => CupertinoButton(
         child: icon,
         onPressed: onPressed,
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        padding: EdgeInsets.all(0),
       );
 }

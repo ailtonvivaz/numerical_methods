@@ -22,6 +22,10 @@ class _AppState extends State<App> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+
+    setState(() {
+      brightness = WidgetsBinding.instance.window.platformBrightness;
+    });
   }
 
   @override
@@ -37,9 +41,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(
-        brightness: brightness,
-      ),
+      data: ThemeData(brightness: brightness),
       child: PlatformApp(
         title: 'Numerical Methods',
         home: HomePage(),
