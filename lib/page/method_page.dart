@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:numerical_methods/calculator.dart';
 import 'package:numerical_methods/model/method.dart';
 import 'package:numerical_methods/tablet_detector.dart';
-import 'package:numerical_methods/utils/master_detail/master_detail_utils.dart';
 import 'package:numerical_methods/widget/custom_slider_thumb_circle.dart';
 import 'package:numerical_methods/widget/platform/platform_app_bar.dart';
 import 'package:numerical_methods/widget/platform/platform_button.dart';
@@ -191,6 +190,7 @@ class _MethodPageState extends State<MethodPage> {
           ],
         );
       default:
+        return Container();
     }
   }
 

@@ -39,11 +39,11 @@ class PlatformListTile extends PlatformWidget<Widget, ListTile> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(title, style: theme.textTheme.subhead),
+                  Text(title, style: theme.textTheme.subtitle1),
                   subtitle == null
                       ? Container()
                       : Text(subtitle,
-                          style: theme.textTheme.body1.copyWith(color: theme.textTheme.caption.color)),
+                          style: theme.textTheme.subtitle1.copyWith(color: theme.textTheme.caption.color)),
                 ],
               ),
             ],

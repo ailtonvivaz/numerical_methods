@@ -4,7 +4,6 @@ import 'package:numerical_methods/model/method.dart';
 import 'package:numerical_methods/model/subject.dart';
 import 'package:numerical_methods/page/method_page.dart';
 import 'package:numerical_methods/tablet_detector.dart';
-import 'package:numerical_methods/utils/master_detail/master_detail_utils.dart';
 import 'package:numerical_methods/widget/platform/platform_app_bar.dart';
 import 'package:numerical_methods/widget/platform/platform_list_tile.dart';
 import 'package:numerical_methods/widget/platform/platform_scaffold.dart';

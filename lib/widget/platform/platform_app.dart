@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:numerical_methods/widget/platform/platform_app_bar.dart';
 import 'package:numerical_methods/widget/platform/platform_widget.dart';
 
 class PlatformApp extends PlatformWidget<CupertinoApp, MaterialApp> {
   final String title;
   final Widget home;
+  final Map<String, WidgetBuilder> routes;
+  final String initialRoute;
 
-  PlatformApp({this.title, @required this.home});
+  PlatformApp(
+      {this.title, @required this.home, this.initialRoute, this.routes});
 
   @override
   MaterialApp createAndroidWidget(BuildContext context) => MaterialApp(
@@ -27,6 +29,8 @@ class PlatformApp extends PlatformWidget<CupertinoApp, MaterialApp> {
           canvasColor: Colors.black,
         ),
         home: home,
+        initialRoute: initialRoute,
+        routes: routes,
       );
 
   @override
@@ -34,5 +38,7 @@ class PlatformApp extends PlatformWidget<CupertinoApp, MaterialApp> {
         debugShowCheckedModeBanner: false,
         title: title,
         home: home,
+        initialRoute: initialRoute,
+        routes: routes,
       );
 }
