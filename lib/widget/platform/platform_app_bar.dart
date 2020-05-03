@@ -6,8 +6,13 @@ class PlatformAppBar extends PlatformWidget<CupertinoNavigationBar, AppBar> {
   final Widget leading;
   final Widget title;
   final List<Widget> actions;
+  final bool automaticallyImplyLeading;
 
-  PlatformAppBar({this.leading, @required this.title, this.actions = const []});
+  PlatformAppBar(
+      {this.leading,
+      @required this.title,
+      this.actions = const [],
+      this.automaticallyImplyLeading = true});
 
   @override
   CupertinoNavigationBar createIosWidget(BuildContext context) =>
@@ -19,12 +24,15 @@ class PlatformAppBar extends PlatformWidget<CupertinoNavigationBar, AppBar> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: actions,
         ),
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        transitionBetweenRoutes: false,
       );
 
   @override
   AppBar createAndroidWidget(BuildContext context) => new AppBar(
         leading: leading,
         title: title,
+        automaticallyImplyLeading: automaticallyImplyLeading,
         actions: actions,
       );
 }

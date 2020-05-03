@@ -12,7 +12,7 @@ class PlatformScaffold extends PlatformWidget<Widget, Scaffold> {
   @override
   Scaffold createAndroidWidget(BuildContext context) {
     return Scaffold(
-      appBar: appBar.build(context),
+      appBar: appBar?.build(context),
       body: body,
     );
   }
@@ -22,7 +22,7 @@ class PlatformScaffold extends PlatformWidget<Widget, Scaffold> {
     return Material(
       elevation: 0.0,
       child: CupertinoPageScaffold(
-        navigationBar: appBar.build(context),
+        navigationBar: appBar?.build(context),
         child: body,
       ),
     );

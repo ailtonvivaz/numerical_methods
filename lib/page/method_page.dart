@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:numerical_methods/calculator.dart';
 import 'package:numerical_methods/model/method.dart';
+import 'package:numerical_methods/tablet_detector.dart';
+import 'package:numerical_methods/utils/master_detail/master_detail_utils.dart';
 import 'package:numerical_methods/widget/custom_slider_thumb_circle.dart';
 import 'package:numerical_methods/widget/platform/platform_app_bar.dart';
 import 'package:numerical_methods/widget/platform/platform_button.dart';
@@ -25,6 +27,7 @@ class MethodPage extends StatefulWidget {
 
 class _MethodPageState extends State<MethodPage> {
   Method get _method => widget.method;
+  bool get isTablet => TabletDetector.isTablet(MediaQuery.of(context));
 
   var _functionController = TextEditingController();
 
@@ -36,6 +39,7 @@ class _MethodPageState extends State<MethodPage> {
     return PlatformScaffold(
       appBar: PlatformAppBar(
         title: Text(_method.name),
+        automaticallyImplyLeading: !isTablet,
         actions: <Widget>[
           _calculatorState == CalculatorState.calculated
               ? PlatformIconButton(
