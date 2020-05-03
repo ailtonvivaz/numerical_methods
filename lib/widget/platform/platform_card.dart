@@ -16,7 +16,7 @@ class PlatformCard extends PlatformWidget<Container, Card> {
   Container createIosWidget(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).dividerColor,
+        color: CupertinoTheme.of(context).barBackgroundColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: child,

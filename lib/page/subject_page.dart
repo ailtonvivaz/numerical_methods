@@ -72,7 +72,7 @@ class _SubjectPageState extends State<SubjectPage> {
           onTap: () => _onClickMethod(method),
           child: Container(
             color: method == _methodSelected
-                ? Theme.of(context).highlightColor
+                ? Theme.of(context).dividerColor
                 : Colors.transparent,
             child: PlatformListTile(
               title: method.name,
